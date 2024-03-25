@@ -22,29 +22,14 @@
 
 ## Pretrained Weights
 
-- [Google Drive link here](https://drive.google.com/drive/folders/1n3-2heTW7SU7Sjh-86cEz6Hi0FJkA_jm?usp=share_link)
-- Download the above folder, replace it with the pretrained_weights directory in the file system 
-- Weights for continuing tha training ahead will be present in `./pretrained_weights/train`
 - g_model weights : `g_last.pth.tar`
 - d_model weights : `d_last.pth.tar`
 - These can be used for the purpose of further training the model over custom dataset.
-- Weights for generating Super Resolution images from TMC2 testing data will be present in `./pretrained_weights/train`
 - g_model weights : `g_best.pth.tar`
 
 ## Datasets
-
-- We used 2 types of datasets for fine tuning the model
-- One, in which the model takes a high resolution image as input and crops in several images of 96x96, creates its 4 times downsampled counterpart and trains over that data. (data size = 750 images)
-- Another, in which we manually feed both high resolution and corresponding low resolution image, the high resoltion image is a 96x96 NAC image while the low resoltion image is a 24x24 TMC2 image such that the corner coordinates of both the images are same. (data size = 13243 images)
-
-- [Google Drive link here](https://drive.google.com/drive/folders/1HPzvEQHVjSSQeGu2WyX8IHNLsrY-HzBs?usp=share_link)
-- Download the above folder, replace it with the train_data directory in the file system and unzip both `train.zip` and `test.zip` files in the `train_data` folder
-- The first type of dataset we used for training will be present in `train_data/train/NAC_highres_dataset`
-- The second type of dataset we used for training will be present in `train_data/train/TMC2NAC_dataset`
-- The validation data to be used along with training will be present in `train_data/test`
-
-- [Google Drive link here](https://drive.google.com/drive/folders/1Ac0Pirfl5W8RqUe_kEUx7c6mos3ueDcY?usp=share_link)
-- From the above folder download `dim_1x.zip` place it in `./generate_data/TMC2`, unzip the zip file here
+Chandrayan TMC-2 : Apollo-12 and Apollo-16 from ISSDC website
+NASA LRO: Apollo-12 and Apollo-16 from LROC-NAC website
 
 ## How to Train, Generate and Evaluate
 
@@ -85,8 +70,6 @@ python train_srgan.py
 Modify the `srgan_config.py` file.
 
 - line 29: `mode` change to `evaluate`.
-- [Google Drive link here](https://drive.google.com/drive/folders/1Ac0Pirfl5W8RqUe_kEUx7c6mos3ueDcY?usp=share_link)
-- From the above folder download `dim_16x.zip` place it in `./generate_data/TMC2`, unzip the zip file here
 
 ```bash
 python evaluation.py
@@ -103,11 +86,3 @@ pip install opencv-python numpy tqdm torch torchvision natsort typing scipy
 ## or
 pip install -r requirements.txt
 ```
-
-Input:
-
-<span align="center"><img width="240" height="360" src="figure/input.png"/></span>
-
-Output: 
-
-<span align="center"><img width="240" height="360" src="figure/output.png"/></span>
