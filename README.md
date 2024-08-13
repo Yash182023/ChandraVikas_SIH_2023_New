@@ -1,6 +1,10 @@
 # SRGAN-PyTorch
 
 ## Overview
+### Problem Statement
+Generation of Hazard map at 1m grid spacing (1m height resolution) using 5m spatial resolution data for safely navigating a Lander to a safe landing site using super resolution techniques.
+
+We have TMC images of nearly 80% area of moon at 5m resolution while OHRC data at 25cm resolution having very limited coverage. Due to limited coverage of OHRC, there are constrains to land at any place on the moon surface. Hence, a problem has been defined to create hazard map using super resolution techniques from TMC 5m images considering the hazard definitions (like Slope-10 degree, Crater / Boulder depth/height – 1m, Crater distribution, shadow etc.) for safely navigating a Lander. This challenge includes the showcasing of lander navigation techniques for safe landing considering reference as TMC 5m datasets in near real time.
 
 ## Walkthrough Filesystem
 
